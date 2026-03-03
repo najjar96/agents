@@ -1,0 +1,34 @@
+name: Daily Research Agent
+on:
+  schedule:
+    - cron: '0 10 * * *' # This is 10:00 AM UTC. Adjust if you need a different timezone.
+  workflow_dispatch:      # This adds a "Run manually" button in GitHub
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Requirements
+        run: pip install -r requirements.txt
+
+      - name: Run Agent
+        env:
+          # These link your GitHub Secrets (that you filled in) to the code
+          SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+          SENDER_PASSWORD: ${{ secrets.SENDER_PASSWORD }}
+          RECIPIENTS_CV: ${{ secrets.RECIPIENTS_CV }}
+          RECIPIENTS_RAG: ${{ secrets.RECIPIENTS_RAG }}
+          RECIPIENTS_UNITY: ${{ secrets.RECIPIENTS_UNITY }}
+          # These can be hardcoded here since they aren't "secret"
+          URL_3D: "https://arxiv.org/list/cs.GR/recent"
+          URL_CV: "https://arxiv.org/list/cs.CV/recent"
+          URL_RAG: "https://arxiv.org/list/cs.CL/recent"
+        run: python main.py
