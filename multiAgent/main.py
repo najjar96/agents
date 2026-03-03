@@ -56,10 +56,7 @@ def job():
 schedule.every().day.at("10:00").do(job)
 
 if __name__ == "__main__":
-    print("Testing customized email distribution...")
+    # In GitHub Actions, we just run the job once and finish.
+    print("Starting GitHub Action Agent Run...")
     job()
-
-    print("\nWaiting for 10:00 AM schedule...")
-    while True:
-        schedule.run_pending()
-        time.sleep(60)
+    print("Run complete. Closing session.")
