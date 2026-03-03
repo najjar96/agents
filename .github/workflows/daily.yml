@@ -30,6 +30,7 @@ jobs:
           RECIPIENTS_CV: ${{ secrets.RECIPIENTS_CV }}
           RECIPIENTS_RAG: ${{ secrets.RECIPIENTS_RAG }}
           RECIPIENTS_UNITY: ${{ secrets.RECIPIENTS_UNITY }}
+          RECIPIENTS_AGENT: ${{ secrets.RECIPIENTS_AGENT }}
           
           # CHUNK 1: Major Publishers & Research Hubs
           RES_1: "https://aaai.org/,https://ieeexplore.ieee.org/,https://arxiv.org/,https://www.mdpi.com/,https://dl.acm.org/,https://www.thecvf.com/,https://openreview.net/,https://www.siggraph.org/,https://onlinelibrary.wiley.com/,https://jingdaily.com/,https://huggingface.co/,https://journals.sagepub.com/,https://www.sciencedirect.com/,https://www.researchgate.net/,https://80.lv/,https://3dbody.tech/,https://www.themoonlight.io/,https://bytez.com/,https://github.com/,https://www.aibase.com/"
