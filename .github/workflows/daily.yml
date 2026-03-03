@@ -1,14 +1,12 @@
 name: Daily Research Agent
 on:
   schedule:
-    - cron: '0 10 * * *'
+    - cron: '0 7 * * *' # 10:00 AM Jordan Time
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
-    # THIS SECTION IS THE FIX:
     defaults:
       run:
         working-directory: ./multiAgent 
@@ -32,7 +30,20 @@ jobs:
           RECIPIENTS_CV: ${{ secrets.RECIPIENTS_CV }}
           RECIPIENTS_RAG: ${{ secrets.RECIPIENTS_RAG }}
           RECIPIENTS_UNITY: ${{ secrets.RECIPIENTS_UNITY }}
-          URL_3D: "https://arxiv.org/list/cs.GR/recent"
-          URL_CV: "https://arxiv.org/list/cs.CV/recent"
-          URL_RAG: "https://arxiv.org/list/cs.CL/recent"
+          
+          # CHUNK 1: Major Publishers & Research Hubs
+          RES_1: "https://aaai.org/,https://ieeexplore.ieee.org/,https://arxiv.org/,https://www.mdpi.com/,https://dl.acm.org/,https://www.thecvf.com/,https://openreview.net/,https://www.siggraph.org/,https://onlinelibrary.wiley.com/,https://jingdaily.com/,https://huggingface.co/,https://journals.sagepub.com/,https://www.sciencedirect.com/,https://www.researchgate.net/,https://80.lv/,https://3dbody.tech/,https://www.themoonlight.io/,https://bytez.com/,https://github.com/,https://www.aibase.com/"
+          
+          # CHUNK 2: AI Conferences & University Labs
+          RES_2: "https://www.frontiersin.org/,https://neurips.cc/,https://www.nature.com/,https://web.mit.edu/,https://chatpaper.com/,https://inria.hal.science/,https://ailab.tencent.com/,https://www.ijcai.org/,https://is.mpg.de/ps/en/publications/,https://www.fibre2fashion.com/,https://www.infoworld.com/,https://papers.miccai.org/,https://www.paperdigest.org/,https://www.semanticscholar.org/,https://www.ijraset.com/,https://www.alphaxiv.org/,https://research.nvidia.com/,https://iopscience.iop.org/"
+          
+          # CHUNK 3: Fashion AI & Industry Reports
+          RES_3: "https://www.fashionrevolution.org/,https://fashionunited.com/i,https://neurohive.io/,https://theimpression.com/,https://fashionista.com/,https://apparelresources.com/,https://www.thisweekinai.ai/,https://stability.ai/learning-hub,https://www.modernretail.co/,https://www.aidlab.hk/en/,https://seed.bytedance.com/,https://www.thelasttech.com/,https://papers.cool/,https://xlook.app/blog/,https://www.fashiondiffusion.ai/,https://articles.wifd.in/,https://www.fashioninsta.ai/,https://www.theinterline.com/"
+          
+          # CHUNK 4: Business, Finance & Analytics
+          RES_4: "https://us.fashionnetwork.com/,https://www.unite.ai/,https://finance.yahoo.com/,https://research.aimultiple.com/ai-in-fashion/,https://aimultiple.com/,https://www.customerexperiencedive.com/,https://retailboss.co/,https://www.bain.com/,https://theaisurf.com/,https://academic.oup.com/,https://www.f6s.com/,https://bbf.digital/,https://www.warc.com/,https://www.catalyzex.com/,https://techcrunch.com/,https://pitchbook.com/,https://vlg.inf.ethz.ch/publications/,https://www.silverlake.com/"
+          
+          # CHUNK 5: Specialized AI, Chinese Sources & Engineering
+          RES_5: "https://www.sciengine.com/SCIS/home,https://valser.org/,https://www.shlab.org.cn/,https://keg.cs.tsinghua.edu.cn/home,https://www.chinatalk.media/,https://www.36kr.com/,https://www.ccai.net/,https://open.bigmodel.cn/,https://chinaxiv.org/,https://www.modelscope.ai/home,https://gitee.com/,https://oversea.cnki.net/index/,https://damo.alibaba.com/,https://www.jst.go.jp/EN/,https://researchmap.jp/,https://research.zozo.com/,https://rit.rakuten.com/,https://clova.ai/en/ai-research"
+
         run: python main.py
