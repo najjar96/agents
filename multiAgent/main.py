@@ -22,7 +22,7 @@ KEYWORDS = {
     'RAG': ['vision', 'vlm', 'gen ai', 'generative ai', 'diffusion', 'multimodal'],
     'UNITY': ['spatial', '3d', 'guided data', 'conditional', 'unity', 'gaussian', 'nerf'],
     'CV': ['mcp', 'memory', 'rag', 'retrieval', 'context window', 'long-term memory'],
-    'AGENT': ['agent', 'multi-agent', 'autonomous', 'swarm', 'mcp agent', 'tool-use']
+    'AGENT': ['agent', 'multi-agent', 'autonomous', 'swarm', 'mcp agent', 'tool-use', 'ios', 'xcode']
 }
 
 def is_recent(text):
