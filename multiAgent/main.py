@@ -18,9 +18,9 @@ Scope: Building AI systems that understand images/videos/documents to generate s
 Focus: Identify breakthroughs in VLM/MLLM, Scene Graph Generation, Real-time Video Understanding, and Diffusion Models. 
 Tech: Python, PyTorch, HuggingFace, Vertex AI, vLLM, and Agentic AI (MCP/API integration, grounding, and hallucination control).""",
 
-    'UNITY': """Expert Prompt: You are a Spatial Computing Architect and Engineer.
-Scope: Focus on 3D reconstruction, Guided Data, and high-fidelity environmental digitization for XR and industrial digital twins.
-Focus: You look for 2026 developments in Gaussian Splatting, NeRF integration within Unity, Depth sensing, and Point Clouds.""",
+    'AGENT': """Expert Prompt: You are an Agentic AI Specialist and Systems Lead.
+    Scope: Designing autonomous Multi-Agent Systems, Agentic workflows, and 3D/XR-integrated intelligent environments.
+    Focus: 2026 evolution of planning agents, recursive reasoning, orchestration across mobile, enterprise, and real-time 3D systems (game engines, simulations, embodied AI).""",
 
     'AGENT': """Expert Prompt: You are an Agentic AI Specialist and Systems Lead.
 Scope: Designing and monitoring autonomous Multi-Agent Systems, Swarms, and Agentic workflows.
